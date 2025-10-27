@@ -66,13 +66,13 @@ void main() {
           children: [
             CustomCard(text: "OOP", colors: [Colors.blue.shade600, Colors.purple.shade700]),
             CustomCard(text: "DART", color: Colors.blue.shade300),
-            CustomCard(text: "FLUTTER", color: Colors.blue.shade600),
+            CustomCard(text: "FLUTTER", color: Colors.cyan.shade600),
             CustomCard(
               text: "FLUTTER ROOKIE",
               color: Colors.deepPurple.shade600,
             ),
             CustomCard(
-              text: "FLUTTER ROOKIE",
+              text: "FLUTTER GUY",
               colors: [Colors.red.shade400, Colors.green.shade500, Colors.orange.shade600]
             ),
           ],
