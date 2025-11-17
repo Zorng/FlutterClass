@@ -15,43 +15,41 @@ class CustomCard extends StatelessWidget {
        gradientColors = colors;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) {  
     if (gradientColors.isEmpty) {
-      return Container(
-        margin: EdgeInsets.only(top: 20),
-        decoration: BoxDecoration(
-          color: paintColor,
-          borderRadius: BorderRadius.all(Radius.circular(30)),
-        ),
-        child: Center(
-          child: Text(
-            data,
-            style: TextStyle(
-              color: Colors.white,
-              decoration: TextDecoration.none,
-            ),
-          ),
-        ),
-      );
+      return _container();
     } else {
-      return Container(
-        margin: EdgeInsets.only(top: 20),
-        decoration: BoxDecoration(
-          gradient: LinearGradient(colors: gradientColors),
-          borderRadius: BorderRadius.all(Radius.circular(30)),
-        ),
-        child: Center(
-          child: Text(
-            data,
-            style: TextStyle(
-              color: Colors.white,
-              decoration: TextDecoration.none,
-            ),
-          ),
-        ),
-      );
+      return _gradientContainer();
     }
   }
+
+  Container _container() => Container(
+    margin: EdgeInsets.only(top: 20),
+    decoration: BoxDecoration(
+      color: paintColor,
+      borderRadius: BorderRadius.all(Radius.circular(30)),
+    ),
+    child: Center(
+      child: Text(
+        data,
+        style: TextStyle(color: Colors.white, decoration: TextDecoration.none),
+      ),
+    ),
+  );
+
+  Container _gradientContainer() => Container(
+    margin: EdgeInsets.only(top: 20),
+    decoration: BoxDecoration(
+      gradient: LinearGradient(colors: gradientColors),
+      borderRadius: BorderRadius.all(Radius.circular(30)),
+    ),
+    child: Center(
+      child: Text(
+        data,
+        style: TextStyle(color: Colors.white, decoration: TextDecoration.none),
+      ),
+    ),
+  );
 }
 
 void main() {
@@ -64,7 +62,10 @@ void main() {
 
         child: Column(
           children: [
-            CustomCard(text: "OOP", colors: [Colors.blue.shade600, Colors.purple.shade700]),
+            CustomCard(
+              text: "OOP",
+              colors: [Colors.blue.shade600, Colors.purple.shade700],
+            ),
             CustomCard(text: "DART", color: Colors.blue.shade300),
             CustomCard(text: "FLUTTER", color: Colors.cyan.shade600),
             CustomCard(
@@ -73,7 +74,11 @@ void main() {
             ),
             CustomCard(
               text: "FLUTTER GUY",
-              colors: [Colors.red.shade400, Colors.green.shade500, Colors.orange.shade600]
+              colors: [
+                Colors.red.shade400,
+                Colors.green.shade500,
+                Colors.orange.shade600,
+              ],
             ),
           ],
         ),

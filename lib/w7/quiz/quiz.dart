@@ -32,7 +32,7 @@ void main() {
                 spacing: 10,
                 children: [
                   Expanded(
-                    flex: 1,
+                    flex: 25,
                     child: Container(
                       decoration: BoxDecoration(color: Colors.green),
                       child: Column(
@@ -58,7 +58,7 @@ void main() {
                     ),
                   ),
                   Expanded(
-                    flex: 3,
+                    flex: 75,
                     child: Container(
                       decoration: BoxDecoration(color: Colors.orange),
                     ),

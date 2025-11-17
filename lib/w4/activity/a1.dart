@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  const double myWidth = 200;
-  const double myHeight = 200;
+  //CounterNotifier counterNotifier = CounterNotifier();
+
+  ValueNotifier<int> counterNotifier = ValueNotifier(100);
 
   runApp(
     MaterialApp(
@@ -11,20 +12,17 @@ void main() {
         body: Center(
           child: Column(
             children: [
-                Container(
-                width: myWidth,
-                height: myHeight,
-                color: const Color.fromARGB(255, 252, 191, 6),
-                //color: const Colors.amber
-                child:  const Center(
-                  child:  Text(
-                    'HI',
-                    style: TextStyle(
-                      fontSize: 50,
-                      color: Color.fromARGB(255, 52, 7, 255),
-                    ),
-                  ),
-                ),
+              ListenableBuilder(
+                listenable: counterNotifier,
+                builder: (context, child) {
+                  return Text('counter: ${counterNotifier.value}');
+                },
+              ),
+              TextButton(
+                child: Text('Increment'),
+                onPressed: () {
+                  counterNotifier.value++;
+                },
               ),
             ],
           ),
@@ -33,3 +31,14 @@ void main() {
     ),
   );
 }
+
+class CounterNotifier extends ChangeNotifier {
+  int _count = 0;
+  int get count => _count;
+
+  void increment() {
+    _count++;
+    notifyListeners();
+  }
+}
+
