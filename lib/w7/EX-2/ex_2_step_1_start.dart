@@ -30,7 +30,7 @@ class TheBestCard extends StatefulWidget {
 }
 
 class _TheBestCardState extends State<TheBestCard> {
-  bool ? _isFavorite;
+  late bool _isFavorite;
 
   @override
   void initState() {
@@ -40,11 +40,11 @@ class _TheBestCardState extends State<TheBestCard> {
 
   void iconPressed() {
     setState(() {
-      _isFavorite = !_isFavorite!;
+      _isFavorite = !_isFavorite;
     });
   }
 
-  Icon get icon => _isFavorite! ? Icon(Icons.favorite, color: Colors.red,) : Icon(Icons.favorite_border, color: Colors.grey.shade500,);
+  Icon get icon => _isFavorite ? Icon(Icons.favorite, color: Colors.red,) : Icon(Icons.favorite_border, color: Colors.grey.shade500,);
 
   @override
   Widget build(BuildContext context) {

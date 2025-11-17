@@ -26,7 +26,7 @@ class MyCarousel extends StatefulWidget {
 }
 
 class _MyCarouselState extends State<MyCarousel> {
-  int imageIndex = 0;
+  late int imageIndex;
 
   @override
   void initState() {

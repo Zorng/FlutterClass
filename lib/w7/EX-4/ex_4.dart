@@ -43,7 +43,7 @@ class ScoreCard extends StatefulWidget {
 }
 
 class _ScoreCardState extends State<ScoreCard> {
-  int score = 1;
+  late int score;
 
   @override
   void initState() {
