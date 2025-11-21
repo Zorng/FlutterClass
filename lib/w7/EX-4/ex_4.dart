@@ -9,13 +9,34 @@ void main() => runApp(
           padding: const EdgeInsets.all(20),
           child: ListView(
             children: [
-              Column(spacing: 15, 
-                children: [
-                  ScoreCard(title: "Nastiness"),
-                  ScoreCard(title: "My Score in Flutter", initialScore: 10, scoreBarWidth: 230,),
-                  ScoreCard(title: "My Score in Dart", initialScore: 9, scoreBarWidth: 310,),
-                  ScoreCard(title: "Stress Level", initialScore: 8, scoreBarWidth: 280,),
-              ]),
+              LayoutBuilder(
+                builder: (BuildContext context, BoxConstraints constraints) {
+                  double parentWidth = constraints.maxWidth;
+                  return Column(
+                    spacing: 15,
+                    children: [
+                      ScoreCard(title: "Nastiness"),
+                      ScoreCard(
+                        title: "My Score in Flutter",
+                        initialScore: 10,
+                        scoreBarWidth: parentWidth,
+                      ),
+                      ScoreCard(
+                        title: "My Score in Dart",
+                        initialScore: 9,
+                        scoreBarWidth: 310,
+                      ),
+                      ScoreCard(
+                        title: "Stress Level",
+                        initialScore: 8,
+                        scoreBarWidth: parentWidth,
+                      ),
+                    ],
+                  );
+                },
+              ),
+
+              // constraints.maxWidth gives the width available from the parent
             ],
           ),
         ),
