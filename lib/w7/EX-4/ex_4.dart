@@ -15,7 +15,9 @@ void main() => runApp(
                   return Column(
                     spacing: 15,
                     children: [
-                      ScoreCard(title: "Nastiness"),
+                      ScoreCard(
+                        title: "Nastiness"
+                      ),
                       ScoreCard(
                         title: "My Score in Flutter",
                         initialScore: 10,
@@ -34,9 +36,7 @@ void main() => runApp(
                     ],
                   );
                 },
-              ),
-
-              // constraints.maxWidth gives the width available from the parent
+              ),              // constraints.maxWidth gives the width available from the parent
             ],
           ),
         ),
@@ -87,6 +87,10 @@ class _ScoreCardState extends State<ScoreCard> {
       });
     }
   }
+
+
+
+  // case 'x': do something;
 
   // This syntax is crazy. a getter + lamda function + switch case + usage of pattern inside each case
   Color get scoreColor => switch (score) {
