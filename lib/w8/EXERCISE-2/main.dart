@@ -24,7 +24,7 @@ class _TemperatureAppState extends State<TemperatureApp> {
 
   void handleStartClick() {
     setState(() {
-      page = TemperatureScreen(navigate: handleBackClick,);
+      page = DynamicTemperatureScreen(navigate: handleBackClick,);
     });
   }
 
