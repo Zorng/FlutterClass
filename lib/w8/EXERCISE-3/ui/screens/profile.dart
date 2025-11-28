@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:project2/w8/EXERCISE-3/model/profile_tile_model.dart';
 
 import '../theme/theme.dart';
 
-import '../../data/profile_data.dart';
 
-var data = ronanProfile;
 
 class ProfileApp extends StatelessWidget {
-  const ProfileApp({super.key});
+  final ProfileData data;
+  const ProfileApp({super.key, required this.data});
 
   @override
   Widget build(BuildContext context) {
