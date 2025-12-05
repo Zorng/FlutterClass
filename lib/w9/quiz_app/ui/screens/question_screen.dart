@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:project2/w9/quiz_app/data/question_repo.dart';
-import 'package:project2/w9/quiz_app/domain/answer.dart';
+//import 'package:project2/w9/quiz_app/domain/answer.dart';
+import 'package:project2/w9/quiz_app/domain/quiz.dart';
+import 'package:project2/w9/quiz_app/domain/submission.dart';
 import 'package:project2/w9/quiz_app/ui/widget/question_form.dart';
 
 class QuestionScreen extends StatefulWidget {
   final void Function(int) switchScreen;
-  final List<Answer> answers;
+  final Quiz quiz;
   const QuestionScreen({
     super.key,
     required this.switchScreen,
-    required this.answers,
+    required this.quiz,
   });
 
   @override
@@ -17,6 +19,7 @@ class QuestionScreen extends StatefulWidget {
 }
 
 class _QuestionScreenState extends State<QuestionScreen> {
+  Submission submission = Submission(answers: answers);
   int questionIndex = 0;
   int? myKey;
 
@@ -25,12 +28,13 @@ class _QuestionScreenState extends State<QuestionScreen> {
   }
 
   void submit(int k) {
-    answers[questionIndex].answerKey = k;
+    submission.answers[questionIndex].answerKey = k;
     if (questionIndex < questions.length - 1) {
       setState(() {
         questionIndex++;
       });
     }else {
+      quiz.addSubmission(submission);
       widget.switchScreen(2);
     }
   }
@@ -47,7 +51,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
             children: [
               Expanded(
                 child: QuestionForm(
-                  question: widget.answers[questionIndex].question,
+                  question: submission.answers[questionIndex].question,
                   submit: submit,
                 ),
               ),

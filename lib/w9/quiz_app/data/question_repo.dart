@@ -1,5 +1,6 @@
 import 'package:project2/w9/quiz_app/domain/answer.dart';
 import 'package:project2/w9/quiz_app/domain/question.dart';
+import 'package:project2/w9/quiz_app/domain/quiz.dart';
 import 'package:project2/w9/quiz_app/domain/submission.dart';
 
 List<Question> questions = [
@@ -38,3 +39,5 @@ List<Question> questions = [
 List<Answer> answers = [...questions.map((question) => Answer(question: question))];
 
 Submission submission = Submission(answers: answers);
+
+Quiz quiz = Quiz(submissions: []);
