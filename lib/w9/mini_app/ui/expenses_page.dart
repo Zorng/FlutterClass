@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project2/w9/mini_app/model/expense.dart';
 import 'package:project2/w9/mini_app/ui/expense_form.dart';
-import 'package:project2/w9/mini_app/ui/expenses_item.dart';
+import 'package:project2/w9/mini_app/ui/expense_list.dart';
 import 'package:project2/w9/mini_app/ui/statistic_card.dart';
 
 class ExpensesPage extends StatefulWidget {
@@ -52,50 +52,7 @@ class _ExpensesPageState extends State<ExpensesPage> {
               padding: const EdgeInsets.all(8.0),
               child: StatisticCard(data: widget.data),
             ),
-            widget.data.isNotEmpty
-                ? Expanded(
-                    child: ListView.builder(
-                      itemCount: widget.data.length,
-                      itemBuilder: (context, index) {
-                        final expense = widget.data[index];
-                        return Dismissible(
-                          key: Key(expense.id),
-                          onDismissed: (direction) {
-                            setState(() {
-                              widget.data.removeAt(index);
-                            });
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text("Succesfully Remove an item"),
-                                    TextButton(onPressed: ()=> {setState(() {
-                                      widget.data.insert(index,expense);
-                                    })}, child: Text("UNDO"))
-
-                                  ],
-                                ),
-                              ),
-                            );
-                          },
-                          background: Container(
-                            decoration: BoxDecoration(
-                              color: Colors.red.shade200,
-                            ),
-                          ),
-                          child: ExpenseTile(
-                            id: expense.id,
-                            title: expense.title,
-                            amount: expense.amount,
-                            date: expense.date,
-                            expenseType: expense.expenseType,
-                          ),
-                        );
-                      },
-                    ),
-                  )
-                : Text("No expenses recorded"),
+            ExpenseList(data: widget.data),
           ],
         ),
       ),
