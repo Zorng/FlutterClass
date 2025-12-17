@@ -19,8 +19,11 @@ class _TypeSelectorState extends State<TypeSelector> {
 
   @override
   Widget build(BuildContext context) {
+    print("rebuild Category");
     return DropdownMenu<ExpenseType>(
-      onSelected: (value) => onSelect(value!),
+      onSelected: (value) => setState(() {
+        onSelect(value!);
+      }),
       textStyle: TextStyle(fontSize: 10),
       inputDecorationTheme: const InputDecorationTheme(
         labelStyle: TextStyle(fontSize: 10),

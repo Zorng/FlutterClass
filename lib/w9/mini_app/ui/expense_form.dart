@@ -116,6 +116,7 @@ class _ExpenseFormState extends State<ExpenseForm> {
 
   @override
   Widget build(BuildContext context) {
+    print("rebuild form");
     return Container(
       padding: EdgeInsets.only(top: 0, bottom: 20),
       decoration: BoxDecoration(

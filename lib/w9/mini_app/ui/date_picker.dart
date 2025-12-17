@@ -28,6 +28,7 @@ class _DatePickerState extends State<DatePicker> {
 
   @override
   Widget build(BuildContext context) {
+    print("rebuild datePicker");
     return TextButton(
       onPressed: () => _selectDate(),
       child: Row(
