@@ -21,9 +21,7 @@ class _TypeSelectorState extends State<TypeSelector> {
   Widget build(BuildContext context) {
     print("rebuild Category");
     return DropdownMenu<ExpenseType>(
-      onSelected: (value) => setState(() {
-        onSelect(value!);
-      }),
+      onSelected: (value) => onSelect(value!),
       textStyle: TextStyle(fontSize: 10),
       inputDecorationTheme: const InputDecorationTheme(
         labelStyle: TextStyle(fontSize: 10),
