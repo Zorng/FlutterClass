@@ -1,20 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:project2/w9/mini_app/model/expense.dart';
 
-class TypeSelector extends StatefulWidget {
+class TypeSelector extends StatelessWidget {
   final void Function(ExpenseType) getType;
   const TypeSelector({super.key, required this.getType });
 
-  @override
-  State<TypeSelector> createState() => _TypeSelectorState();
-}
-
-class _TypeSelectorState extends State<TypeSelector> {
   final List<ExpenseType> expenseTypes = ExpenseType.values;
- // ExpenseType ? _selectedType;
 
+ // ExpenseType ? _selectedType;
   void onSelect(ExpenseType value) {
-    widget.getType(value);
+    getType(value);
   }
 
   @override
